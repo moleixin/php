@@ -1,0 +1,66 @@
+<aside>
+    <div id="sidebar"  class="nav-collapse ">
+        <!-- sidebar menu start-->
+        <ul class="sidebar-menu" id="nav-accordion">
+            <script type="text/html" id="html_nav-accordion">
+                <% for(var i=0;i < list.length;i++){ %>
+                <li class="<%:=init_class(list[i].type)%>">
+                    <a href="<%:=init_href(list[i].url,list[i].type)%>" class="<%:=init_active(list[i].url,1)%>">
+                        <i class="icon-laptop"></i>
+                        <span><%:=list[i].name%></span>
+                    </a>
+                    <% if(list[i].type == 'sub'){ %>
+                    <ul class="sub">
+                        <% for(var j=0;j < list[i].sub.length;j++){ %>
+                        <li><a  href="<%:=init_href(list[i].sub[j].url,list[i].sub[j].type)%>"><%:=list[i].sub[j].name%></a></li>
+                        <% } %>
+                    </ul>
+                    <% } %>
+                </li>
+                <% } %>
+            </script>
+            <li class="sub-menu">
+                <a href="javascript:;" >
+                    <i class="icon-cogs"></i>
+                    <span>Components</span>
+                </a>
+                <ul class="sub">
+                    <li><a  href="grids.html">Grids</a></li>
+                    <li><a  href="calendar.html">Calendar</a></li>
+                    <li><a  href="gallery.html">Gallery</a></li>
+                    <li><a  href="todo_list.html">Todo List</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<script>
+
+    var menu_data = ajax('http://193.112.8.195/admin/index/getMenuData','post',{uid:1});
+    console.log(menu_data);
+    var url = "";
+    var init_class = function (type) {
+        if(type == 'sub'){
+            return 'sub-menu';
+        }else{
+            return '';
+        }
+    };
+    var init_active = function (url,link) {
+        if(url == link){
+            return 'active';
+        }else{
+            return '';
+        }
+    };
+    var init_href = function (url,type) {
+        if(type == 'link'){
+            return host+url;
+        }else{
+            return 'javascript:;';
+        }
+    };
+    tpl($("#html_nav-accordion").html(),'nav-accordion',menu_data.data);
+
+</script>

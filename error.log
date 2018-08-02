@@ -1,0 +1,12 @@
+  2018/03/12 15:01:59 [error] 15432#0: *1 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/default/p/app/cache/logs/crash_20180312.log): failed to open stream: Permission denied in /home/wwwroot/default/p/public/index.php on line 58
+PHP message: PHP Fatal error:  Uncaught exception 'Phalcon\Logger\Exception' with message 'Can't open log file at '/home/wwwroot/default/p/app/cache/logs/crash_20180312.log'' in /home/wwwroot/default/p/public/index.php:58
+Stack trace:
+#0 /home/wwwroot/default/p/public/index.php(58): Phalcon\Logger\Adapter\File->__construct('/home/wwwroot/d...')
+#1 {main}
+  thrown in /home/wwwroot/default/p/public/index.php on line 58" while reading response header from upstream, client: 119.137.55.64, server: 193.112.8.195, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "193.112.8.195"
+2018/03/12 15:03:42 [error] 15432#0: *3 FastCGI sent in stderr: "PHP message: PHP Warning:  fopen(/home/wwwroot/default/p/app/cache/logs/crash_20180312.log): failed to open stream: Permission denied in /home/wwwroot/default/p/public/index.php on line 58
+PHP message: PHP Fatal error:  Uncaught exception 'Phalcon\Logger\Exception' with message 'Can't open log file at '/home/wwwroot/default/p/app/cache/logs/crash_20180312.log'' in /home/wwwroot/default/p/public/index.php:58
+Stack trace:
+#0 /home/wwwroot/default/p/public/index.php(58): Phalcon\Logger\Adapter\File->__construct('/home/wwwroot/d...')
+#1 {main}
+  thrown in /home/wwwroot/default/p/public/index.php on line 58" while reading response header from upstream, client: 119.137.55.64, server: 193.112.8.195, request: "GET / HTTP/1.1", upstream: "fastcgi://unix:/tmp/php-cgi.sock:", host: "193.112.8.195"

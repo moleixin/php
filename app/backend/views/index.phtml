@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--header start-->
+{{ partial('public/header') }}
+<!--header end-->
+<body>
+
+<section id="container" >
+    <!--top_sidebar start-->
+    {{ partial('public/top_sidebar') }}
+    <!--top_sidebar end-->
+
+    <!--left_sidebar start-->
+    {{ partial('public/left_sidebar') }}
+    <!--left_sidebar end-->
+
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <!--state overview start-->
+            {{content()}}
+            <!--state overview end-->
+        </section>
+    </section>
+    <!--main content end-->
+
+    <!--footer start-->
+    {{ partial('public/footer') }}
+    <!--footer end-->
+</section>
+<script>
+    //owl carousel
+    $(document).ready(function() {
+        $("#owl-demo").owlCarousel({
+            navigation : true,
+            slideSpeed : 300,
+            paginationSpeed : 400,
+            singleItem : true,
+            autoPlay:true
+
+        });
+    });
+    //custom select box
+    $(function(){
+        $('select.styled').customSelect();
+    });
+</script>
+
+</body>
+</html>
